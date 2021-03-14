@@ -13,9 +13,9 @@ public class HttpRequestTabbedPane extends AbstractTabbedPane {
         jSplitPane.setLeftComponent(new JButton("左边按钮"));
         jSplitPane.setRightComponent(new JButton("右边按钮"));
 
-        jSplitPane.setOneTouchExpandable(true);
+        jSplitPane.setOneTouchExpandable(false);
 
-        jSplitPane.setContinuousLayout(true);
+        jSplitPane.setContinuousLayout(false);
         jSplitPane.setDividerLocation(150);
 
 //        jPanel.add(jSplitPane);

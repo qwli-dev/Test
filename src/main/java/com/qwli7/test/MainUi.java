@@ -6,6 +6,7 @@ import com.qwli7.test.ui.HttpServerTabbedPane;
 import com.qwli7.test.ui.JsonFormatTabbedPane;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MainUi {
 
@@ -22,10 +23,18 @@ public class MainUi {
     public void createMainUi() {
         FlatDarculaLaf.install();
 
-        JFrame jFrame = new JFrame("WeTest");
-        jFrame.setSize(800, 600);
-        jFrame.setLocationRelativeTo(null);
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        JFrame mainFrame = new JFrame("WeTest");
+//        jFrame.setSize(800, 600);
+        mainFrame.setMinimumSize(new Dimension(800, 600));
+        mainFrame.setMaximumSize(new Dimension(800, 600));
+
+//        final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//        if(screenSize.getWidth() < 1366) {
+//            mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        }
+
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         final JTabbedPane jTabbedPane = new JTabbedPane();
         HttpServerTabbedPane httpServerTabbedPane = new HttpServerTabbedPane();
@@ -34,12 +43,12 @@ public class MainUi {
 
         jTabbedPane.add("服务器", httpServerTabbedPane.createPane());
         jTabbedPane.add("HTTP请求", httpRequestTabbedPane.createPane());
-        jTabbedPane.add("json格式化", jsonFormatTabbedPane.createPane());
+        jTabbedPane.add("JSON格式化", jsonFormatTabbedPane.createPane());
 
         jTabbedPane.setSelectedIndex(0);
 
 
-        jFrame.setContentPane(jTabbedPane);
-        jFrame.setVisible(true);
+        mainFrame.setContentPane(jTabbedPane);
+        mainFrame.setVisible(true);
     }
 }
